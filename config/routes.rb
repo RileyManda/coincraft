@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'splash_screens#index'
   resources :categories
   resources :transactions
   resources :splash_screens
