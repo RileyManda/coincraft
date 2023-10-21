@@ -293,8 +293,6 @@ I would like to express my sincere gratitude to [Microverse](https://github.com/
 
 ## 📝 License <a name="license"></a>
 
-[MIT License](https://github.com/RileyManda/CoinCraft/blob/dev/LICENSE)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
