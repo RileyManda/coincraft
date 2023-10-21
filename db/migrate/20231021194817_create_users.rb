@@ -7,5 +7,6 @@ class CreateUsers < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_reference :transactions, :user, foreign_key: true, index: true
   end
 end
