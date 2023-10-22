@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_22_182423) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_22_195927) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,10 +19,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_22_182423) do
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "created_by_id"
     t.bigint "author_id"
     t.index ["author_id"], name: "index_categories_on_author_id"
-    t.index ["created_by_id"], name: "index_categories_on_created_by_id"
   end
 
   create_table "transaction_categories", id: false, force: :cascade do |t|
@@ -47,8 +45,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_22_182423) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password"
   end
 
-  add_foreign_key "categories", "users", column: "created_by_id"
 end
