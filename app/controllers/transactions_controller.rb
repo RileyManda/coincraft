@@ -57,13 +57,18 @@ class TransactionsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_transaction
     @transaction = Transaction.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
-  def transaction_params
-    params.require(:transaction).permit(:name, :amount, :user_id, :category_id)
-  end
+
+def transaction_params
+  params.require(:transaction).permit(:name, :amount, :user_id, category_ids: [])
+end
+
+
+
+
+
+
 end
