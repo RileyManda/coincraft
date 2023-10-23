@@ -4,23 +4,14 @@ class TransactionsController < ApplicationController
   # GET /transactions or /transactions.json
   def index
     @transactions = Transaction.all
-    @categories = Category.all
   end
 
   # GET /transactions/1 or /transactions/1.json
-  def show
-    @category_id = params[:id]
-    @category = Category.find(@category_id)
-    @category_name = @category.name
-    transaction_categories = TransactionCategory.where(category_id: @category_id)
-    @transactions = Transaction.where(id: transaction_categories.pluck(:transaction_id)).order(created_at: :desc)
-    @sum = @transactions.sum(:amount)
-  end
+  def show; end
 
   # GET /transactions/new
   def new
     @transaction = Transaction.new
-    @categories = Category.all
   end
 
   # GET /transactions/1/edit
@@ -37,7 +28,7 @@ def create
 
     if @transaction.save
       flash[:success] = 'Successfully captured transaction.'
-      redirect_to user_transaction_url(author_id: User.first.id, id: category_id)
+      redirect_to transactions_path(author_id: User.first.id, id: category_id)
     else
       flash[:error] = 'There was an error while capturing the transaction.'
       puts "Failed to save transaction."
@@ -49,9 +40,6 @@ def create
     render :new
   end
 end
-
-
-
 
   # PATCH/PUT /transactions/1 or /transactions/1.json
   def update
@@ -82,7 +70,15 @@ end
     @transaction = Transaction.find(params[:id])
   end
 
-  def transaction_params
-    params.require(:transaction).permit(:name, :amount, category_ids: [])
-  end
+
+def transaction_params
+  params.require(:transaction).permit(:name, :amount, :user_id, category_ids: [])
+end
+
+
+
+
+
+
+
 end
