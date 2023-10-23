@@ -19,16 +19,25 @@ class TransactionsController < ApplicationController
 
   # POST /transactions or /transactions.json
   def create
-    @transaction = Transaction.new(transaction_params)
+    category_id = params[:transaction][:category_id]
+    @transaction = Transaction.new(author_id: User.first.id, **transaction_params)
+    puts "Debug Info: category_id=#{category_id}, name=#{@transaction.name}, amount=#{@transaction.amount}"
 
-    respond_to do |format|
+    if category_id.present?
+      @transaction.category_id = category_id
+
       if @transaction.save
-        format.html { redirect_to transaction_url(@transaction), notice: 'Transaction was successfully created.' }
-        format.json { render :show, status: :created, location: @transaction }
+        flash[:success] = 'Successfully captured transaction.'
+        redirect_to transactions_path(author_id: User.first.id, id: category_id)
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        flash[:error] = 'There was an error while capturing the transaction.'
+        puts 'Failed to save transaction.'
+        puts "Transaction errors: #{transaction.errors.full_messages.join(', ')}"
+        render :new
       end
+    else
+      flash[:error] = 'No category was selected for the transaction.'
+      render :new
     end
   end
 
@@ -57,13 +66,11 @@ class TransactionsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_transaction
     @transaction = Transaction.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def transaction_params
-    params.require(:transaction).permit(:name, :amount, :user_id, :category_id)
+    params.require(:transaction).permit(:name, :amount, :user_id, category_ids: [])
   end
 end
