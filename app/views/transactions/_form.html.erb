@@ -2,7 +2,6 @@
   <% if transaction.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
-
       <ul>
         <% transaction.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -20,11 +19,11 @@
     <%= form.label :amount, style: "display: block" %>
     <%= form.text_field :amount %>
   </div>
-<div class="field">
-  <%= form.label :category_ids, "Select Categories" %>
-  <%= form.select :category_ids, Category.all.collect { |c| [c.name, c.id] }, {}, multiple: true %>
-</div>
 
+  <div class="field">
+    <%= form.label :category_id, "Select Category" %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, prompt: "Select a category" %>
+  </div>
 
   <div>
     <%= form.submit %>

@@ -18,25 +18,16 @@ class TransactionsController < ApplicationController
   def edit; end
 
   # POST /transactions or /transactions.json
- def create
-  @category = Category.new(category_params)
-  @category.author_id = current_user.id
 
-  if @category.save
-  else
-  end
-end
 def create
   @transaction = Transaction.new(transaction_params)
   @transaction.author_id = User.first.id
 
+  category_id = params.dig(:transaction, :category_id)
+
   respond_to do |format|
     if @transaction.save
-      category_ids = params[:transaction][:category_ids].reject(&:empty?)
-      if category_ids.present?
-        category_id = category_ids.first
-        @transaction.category_id = category_id
-      end
+      @transaction.category_id = category_id if category_id.present?
 
       format.html { redirect_to transaction_url(@transaction), notice: 'Transaction was successfully created.' }
       format.json { render :show, status: :created, location: @transaction }
@@ -46,6 +37,8 @@ def create
     end
   end
 end
+
+
 
 
   # PATCH/PUT /transactions/1 or /transactions/1.json
@@ -81,6 +74,7 @@ end
 def transaction_params
   params.require(:transaction).permit(:name, :amount, :user_id, category_ids: [])
 end
+
 
 
 
