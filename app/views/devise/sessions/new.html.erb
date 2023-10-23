@@ -1,6 +1,7 @@
-<div class="container-fluid card text-center d-flex flex-column justify-content-between" style="height: 95vh; max-width: 400px;">
-  <h2>Log in</h2>
-
+<div class="container-fluid card d-flex flex-column justify-content-between" style="height: 95vh; max-width: 400px;">
+  <div class="app-bar bg-primary text-white w-100">
+    <h2 class="text-center">Log in</h2>
+  </div>
   <div class="container" style="max-width: 400px;">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
