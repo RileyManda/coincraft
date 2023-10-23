@@ -1,4 +1,5 @@
 class Category < ApplicationRecord
+  belongs_to :user, foreign_key: 'author_id'
   has_many :transaction_categories
   has_many :transactions, through: :transaction_categories, source: :transaction_record
   validates :name, presence: true

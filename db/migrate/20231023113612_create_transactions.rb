@@ -1,15 +1,12 @@
 class CreateTransactions < ActiveRecord::Migration[7.0]
   def change
     create_table :transactions do |t|
-      t.references :user, foreign_key: true, index: true
-      t.references :category, foreign_key: true, index: true
+      t.references :author, foreign_key: { to_table: :users }
       t.string :name
       t.decimal :amount
-      t.datetime :created_at
+      t.references :category, null: false, foreign_key: true
 
       t.timestamps
     end
-
-    add_index :transactions, :user_id
   end
 end

@@ -20,7 +20,7 @@ class TransactionsController < ApplicationController
   # POST /transactions or /transactions.json
   def create
     category_id = params[:transaction][:category_id]
-    @transaction = Transaction.new(author_id: User.first.id, **transaction_params)
+    @transaction = Transaction.new(author_id: current_user.id, **transaction_params)
     puts "Debug Info: category_id=#{category_id}, name=#{@transaction.name}, amount=#{@transaction.amount}"
 
     if category_id.present?
