@@ -3,7 +3,6 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    # @categories = Category.all
     @categories = Category.includes(:transactions)
   end
 
