@@ -1,6 +1,9 @@
 class SplashScreensController < ApplicationController
   before_action :set_splash_screen, only: %i[show edit update destroy]
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
+def welcome
+  @splash_screens = SplashScreen.all
+end
   # GET /splash_screens or /splash_screens.json
   def index
     @splash_screens = SplashScreen.all
