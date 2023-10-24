@@ -1,6 +1,16 @@
 <div class="container-fluid p-0" style="max-width: 100%;">
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
-    <h2 class="navbar-heading text-white mx-auto">Sign up</h2>
+<%= link_to new_user_session_path do %>
+  <span class="btn white-text mb-2" style="font-size: 24px; color: white;">
+    &larr;
+  </span>
+<% end %>
+    <h2 class="text-center text-white w-100">
+      REGISTER
+    </h2>
+    <a class="navbar-brand text-white" href="#" id="next-button">
+      Next
+    </a>
   </nav>
 
   <div class="container mt-3" style="max-width: 400px;">
@@ -17,7 +27,7 @@
 
       <div class="form-group mb-3">
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
         <%= f.password_field :password, placeholder: "Password", autocomplete: "new-password", class: "form-control" %>
       </div>
@@ -25,14 +35,12 @@
       <div class="form-group mb-3">
         <%= f.password_field :password_confirmation, placeholder: "Confirm Password", autocomplete: "new-password", class: "form-control" %>
       </div>
-
-      <div class="form-group">
-        <%= f.submit "Sign up", class: "btn btn-primary", style: "background-color: #3778c2;"  %>
-      </div>
     <% end %>
   </div>
-
-  <div class="text-center">
-    <%= render "devise/shared/links" %>
-  </div>
 </div>
+
+<script>
+  document.getElementById("next-button").addEventListener("click", function() {
+    document.querySelector("form").submit();
+  });
+</script>

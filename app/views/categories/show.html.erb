@@ -9,11 +9,7 @@ Transactions
   <img src="<%= asset_path('search-icon.png') %>" alt="" class="logo" style="margin-left: 10px;">
 </a>
 </nav>
-  <div class="card mb-2">
-      <div class="card-body">
-        <h5 class="card-title"><%= @category.name %></h5>
-      </div>
-    </div>
+
 <p style="color: green"><%= notice %></p>
 <div class="card mb-3">
   <div class="card-body">
@@ -26,9 +22,7 @@ Transactions
     </div>
   </div>
 </div>
-
-<h2>Transactions in this Category:</h2>
-<div class="list-group">
+<div class="list-group" style="margin-left: 20px;margin-right: 20px;">
   <% @category.transactions.each do |transaction| %>
     <div class="card mb-2">
       <div class="card-body">

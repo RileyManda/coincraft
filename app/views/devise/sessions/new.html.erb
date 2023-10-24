@@ -1,6 +1,16 @@
 <div class="container-fluid p-0" style="max-width: 100%;">
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
-    <h2 class="navbar-heading text-white mx-auto">Log in</h2>
+<%= link_to new_user_session_path do %>
+  <span class="btn white-text mb-2" style="font-size: 24px; color: white;">
+    &larr;
+  </span>
+<% end %>
+    <h2 class="text-center text-white w-100">
+      LOGIN
+    </h2>
+    <a class="navbar-brand text-white" href="#" id="login-button">
+      Log In
+    </a>
   </nav>
   <div class="container" style="max-width: 400px; margin: 0 auto;">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -20,10 +30,6 @@
           <%= f.label :remember_me, class: "form-check-label" %>
         </div>
       <% end %>
-
-      <div class="form-group">
-        <%= f.submit "Log in", class: "btn btn-primary", style: "background-color: #3778c2;" %>
-      </div>
     <% end %>
   </div>
 
@@ -32,3 +38,8 @@
   </div>
 </div>
 
+<script>
+  document.getElementById("login-button").addEventListener("click", function() {
+    document.querySelector("form").submit();
+  });
+</script>
