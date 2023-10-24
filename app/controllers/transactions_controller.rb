@@ -21,7 +21,7 @@ class TransactionsController < ApplicationController
   # POST /transactions or /transactions.json
   def create
   category_id = params[:transaction][:category_id]
-  
+
   puts "Category ID: #{category_id}"
   # @transaction = Transaction.new(author_id: current_user.id, **transaction_params)
   @transaction = Transaction.new(author_id: current_user.id, category_id: category_id, **transaction_params)
@@ -66,7 +66,7 @@ end
     @transaction.destroy
 
     respond_to do |format|
-      format.html { redirect_to transactions_url, notice: 'Transaction was successfully destroyed.' }
+      format.html { redirect_to categories_path, notice: 'Transaction was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

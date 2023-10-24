@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
-<a class="navbar-brand" href="#">
-  <img src="<%= asset_path('nav-icon.png') %>" alt="" class="logo" style="margin-left: 10px;">
-</a>
+<%= link_to  categories_path do %>
+    <img src="<%= asset_path('arrow-left.png') %>" alt="" class="logo" style="margin-left: 10px;">
+  <% end %>
   <h1 class="text-center text-white w-100">
 Transactions
   </h1>
@@ -15,10 +15,20 @@ Transactions
   <div class="card-body">
     <%= render @category %>
     <div class="text-right">
-      <%= link_to "Edit this category", edit_category_path(@category), class: "btn btn-warning" %>
-      <%= link_to "Back to all other categories", categories_path, class: "btn btn-secondary" %>
-      <%= link_to "Create Transaction", new_transaction_path(category_id: @category.id), class: "btn btn-success" %>
-      <%= button_to "Destroy this category", @category, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      <%
+=begin%>
+ <%= link_to "Edit this category", edit_category_path(@category), class: "btn btn-warning" %>
+<%
+=end%>
+
+
+
+
+      <%
+=begin%>
+ <%= button_to "Destroy this category", @category, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+<%
+=end%>
     </div>
   </div>
 </div>
@@ -32,4 +42,11 @@ Transactions
       </div>
     </div>
   <% end %>
+
 </div>
+<div class="container-fluid fixed-bottom">
+  <div class="container">
+    <%= link_to "add a new transaction", new_transaction_path(category_id: @category.id), class: "btn btn-success btn-block w-100", style: "background-color: #5fb523;" %>
+  </div>
+</div>
+
