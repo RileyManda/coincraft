@@ -12,6 +12,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
+    @category = Category.find(params[:category_id]) if params[:category_id].present?
   end
 
   # GET /transactions/1/edit
@@ -19,27 +20,32 @@ class TransactionsController < ApplicationController
 
   # POST /transactions or /transactions.json
   def create
-    category_id = params[:transaction][:category_id]
-    @transaction = Transaction.new(author_id: current_user.id, **transaction_params)
-    puts "Debug Info: category_id=#{category_id}, name=#{@transaction.name}, amount=#{@transaction.amount}"
+  category_id = params[:transaction][:category_id]
+  puts "Category ID: #{category_id}"
+  # @transaction = Transaction.new(author_id: current_user.id, **transaction_params)
+  @transaction = Transaction.new(author_id: current_user.id, category_id: category_id, **transaction_params)
 
-    if category_id.present?
-      @transaction.category_id = category_id
 
+  if category_id.present?
+    @transaction.category_id = category_id
+
+    respond_to do |format|
       if @transaction.save
-        flash[:success] = 'Successfully captured transaction.'
-        redirect_to transactions_path(author_id: User.first.id, id: category_id)
+        flash[:success] = 'Successfully created a new transaction.'
+        format.html { redirect_to category_path(category_id), notice: 'Transaction was successfully created.' }
+        format.json { render :show, status: :created, location: @transaction }
       else
-        flash[:error] = 'There was an error while capturing the transaction.'
-        puts 'Failed to save transaction.'
-        puts "Transaction errors: #{transaction.errors.full_messages.join(', ')}"
-        render :new
+        flash[:error] = 'There was an error while creating the transaction.'
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @transaction.errors, status: :unprocessable_entity }
       end
-    else
-      flash[:error] = 'No category was selected for the transaction.'
-      render :new
     end
+  else
+    flash[:error] = 'No category was selected for the transaction.'
+    render :new
   end
+end
+
 
   # PATCH/PUT /transactions/1 or /transactions/1.json
   def update
@@ -71,6 +77,7 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:name, :amount, :user_id, category_ids: [])
-  end
+  params.require(:transaction).permit(:name, :amount, :category_id)
+end
+
 end
