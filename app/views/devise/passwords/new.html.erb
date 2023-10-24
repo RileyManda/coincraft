@@ -3,13 +3,12 @@
     <h2 class="navbar-heading text-white mx-auto">Forgot your password?</h2>
   </nav>
 
-  <div class="container text-center" style="max-width: 400px; margin: 0 auto;">
+  <div class="container text-center mt-3" style="max-width: 400px; margin: 0 auto;">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      <div class="form-group mb-3">
+        <%= f.email_field :email,placeholder: "Email", autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
 
       <div class="text-center">
