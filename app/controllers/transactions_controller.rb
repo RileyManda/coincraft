@@ -19,29 +19,25 @@ class TransactionsController < ApplicationController
   def edit; end
 
   # POST /transactions or /transactions.json
-  def create
-  category_id = params[:transaction][:category_id]
-  puts "Category ID: #{category_id}"
-  # @transaction = Transaction.new(author_id: current_user.id, **transaction_params)
-  @transaction = Transaction.new(author_id: current_user.id, category_id: category_id, **transaction_params)
+  # POST /transactions or /transactions.json
+def create
+  category_ids = params[:transaction][:category_ids]
+  @transaction = Transaction.new(author_id: current_user.id, **transaction_params)
 
+  if @transaction.save
+    flash[:success] = 'Successfully created a new transaction.'
 
-  if category_id.present?
-    @transaction.category_id = category_id
+    # Create TransactionCategory records for each category
+    category_ids.each do |category_id|
+      TransactionCategory.create(transaction_id: @transaction.id, category_id: category_id)
+    end
 
     respond_to do |format|
-      if @transaction.save
-        flash[:success] = 'Successfully created a new transaction.'
-        format.html { redirect_to category_path(category_id), notice: 'Transaction was successfully created.' }
-        format.json { render :show, status: :created, location: @transaction }
-      else
-        flash[:error] = 'There was an error while creating the transaction.'
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to category_path(category_id), notice: 'Transaction was successfully created.' }
+      format.json { render :show, status: :created, location: @transaction }
     end
   else
-    flash[:error] = 'No category was selected for the transaction.'
+    flash[:error] = 'There was an error while creating the transaction.'
     render :new
   end
 end
