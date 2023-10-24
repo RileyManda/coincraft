@@ -1,31 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
+  <a class="navbar-brand text-white" href="#">CoinCraft</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <h1 class="text-center text-white w-100">
+    <%= @category.name %>
+  </h1>
+</nav>
+
+
 <p style="color: green"><%= notice %></p>
 
-<%= render @category %>
-
-<div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to all other categories", categories_path %>
-  <%= link_to "Create Transaction", new_transaction_path(category_id: @category.id) %>
-  <%= button_to "Destroy this category", @category, method: :delete %>
+<div class="card mb-3">
+  <div class="card-body">
+    <%= render @category %>
+    <div class="text-right">
+      <%= link_to "Edit this category", edit_category_path(@category), class: "btn btn-warning" %>
+      <%= link_to "Back to all other categories", categories_path, class: "btn btn-secondary" %>
+      <%= link_to "Create Transaction", new_transaction_path(category_id: @category.id), class: "btn btn-success" %>
+      <%= button_to "Destroy this category", @category, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    </div>
+  </div>
 </div>
 
 <h2>Transactions in this Category:</h2>
-<ul>
+<div class="list-group">
   <% @category.transactions.each do |transaction| %>
-    <li>
-      Name: <%= transaction.name %>
-      Amount: <%= transaction.amount %>
-      <%= link_to "Show this transaction", transaction %>
-    </li>
+    <div class="card mb-2">
+      <div class="card-body">
+        <h5 class="card-title">Name: <%= transaction.name %></h5>
+        <p class="card-text">Amount: <%= transaction.amount %></p>
+        <%= link_to "Show this transaction", transaction, class: "btn btn-primary" %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
 
 <h2>All Transactions in the System:</h2>
-<div id="transactions">
+<div id="transactions" class="list-group">
   <% @transactions.each do |transaction| %>
-    <%= render transaction %>
-    <p>
-      <%= link_to "Show this transaction", transaction %>
-    </p>
+    <div class="card mb-2">
+      <div class="card-body">
+        <%= render transaction %>
+        <a href="<%= transaction_path(transaction) %>" class="btn btn-primary">Show this transaction</a>
+      </div>
+    </div>
   <% end %>
 </div>

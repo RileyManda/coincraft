@@ -14,8 +14,12 @@
 
 <div id="categories" class="list-group">
   <% @categories.each do |category| %>
-    <%= render category %>
-    <a href="<%= category_path(category) %>" class="list-group-item list-group-item-action">Show this category</a>
+    <div class="card mb-2">
+      <div class="card-body">
+        <%= render category %>
+        <a href="<%= category_path(category) %>" class="btn btn-primary">Show this category</a>
+      </div>
+    </div>
   <% end %>
 </div>
 
