@@ -5,11 +5,13 @@
   </button>
   <h1 class="text-center text-white w-100">Categories</h1>
 </nav>
-
 <% if user_signed_in? %>
   <%= link_to "Welcome, #{current_user.email}", "#", class: "nav-link" %>
 <% end %>
-
+ <div class="notifications">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
 <p style="color: green"><%= notice %></p>
 
 <div id="categories" class="list-group">
