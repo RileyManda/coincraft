@@ -1,17 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
+  <a class="navbar-brand text-white" href="#">CoinCraft</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <h1 class="text-center text-white w-100">Categories</h1>
+</nav>
+
+<% if user_signed_in? %>
+  <%= link_to "Welcome, #{current_user.email}", "#", class: "nav-link" %>
+<% end %>
+
 <p style="color: green"><%= notice %></p>
 
-<h1>Categories</h1>
-
-<div id="categories">
+<div id="categories" class="list-group">
   <% @categories.each do |category| %>
     <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
+    <a href="<%= category_path(category) %>" class="list-group-item list-group-item-action">Show this category</a>
   <% end %>
 </div>
 
 <%= link_to "New category", new_category_path %>
-<% if user_signed_in? %>
-  <p>Welcome, <%= current_user.email %></p>
-<% end %>

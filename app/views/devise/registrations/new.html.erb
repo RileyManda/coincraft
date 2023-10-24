@@ -1,37 +1,33 @@
 <div class="container-fluid p-0" style="max-width: 100%;">
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
-    <h2 class="navbar-heading">Sign up</h2>
+    <h2 class="navbar-heading text-white mx-auto">Sign up</h2>
   </nav>
 
-  <div class="container" style="max-width: 400px;">
+  <div class="container mt-3" style="max-width: 400px;">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+      <div class="form-group mb-3">
+        <%= f.text_field :name, placeholder: "Name", autofocus: true, autocomplete: "name", class: "form-control" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      <div class="form-group mb-3">
+        <%= f.email_field :email, placeholder: "Email", autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :password %>
+      <div class="form-group mb-3">
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        <%= f.password_field :password, placeholder: "Password", autocomplete: "new-password", class: "form-control" %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= f.password_field :password_confirmation, placeholder: "Confirm Password", autocomplete: "new-password", class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.submit "Sign up", class: "btn btn-primary" , style:"background-color: #3778c2;"  %>
+        <%= f.submit "Sign up", class: "btn btn-primary", style: "background-color: #3778c2;"  %>
       </div>
     <% end %>
   </div>

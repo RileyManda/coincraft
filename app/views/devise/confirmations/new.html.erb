@@ -1,5 +1,8 @@
-<div class="container-fluid text-center d-flex flex-column justify-content-between" style="height: 90vh;">
-<h2>Resend confirmation instructions</h2>
+
+<div class="container-fluid p-0" style="max-width: 100%;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
+    <h2>Resend confirmation instructions</h2>
+  </nav>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
