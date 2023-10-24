@@ -1,8 +1,13 @@
-<div class="container-fluid card d-flex flex-column justify-content-between" style="height: 95vh; max-width: 400px;">
-<div class="app-bar" style="background-color: #3778c2; color: white; max-width: 100%;">
-    <h2 class="text-center">Log in</h2>
-  </div>
-  <div class="container" style="max-width: 400px;">
+
+<div class="container-fluid p-0" style="max-width: 100%;">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
+    <h2 class="navbar-heading">Log in</h2>
+  </nav>
+
+
+
+
+  <div class="container" style="max-width: 400px; margin: 0 auto;">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
         <%= f.label :email %>
@@ -22,7 +27,7 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.submit "Log in", class: "btn btn-primary" , style:"background-color: #3778c2;" %>
+        <%= f.submit "Log in", class: "btn btn-primary", style: "background-color: #3778c2;" %>
       </div>
     <% end %>
   </div>
@@ -31,3 +36,4 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
+

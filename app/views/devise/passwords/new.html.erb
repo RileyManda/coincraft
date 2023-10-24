@@ -1,7 +1,7 @@
-<div class="container-fluid card text-center d-flex flex-column justify-content-between" style="height: 95vh; max-width: 400px;">
-<div class="app-bar" style="background-color: #3778c2; color: white; max-width: 100%;">
-    <h2 class="text-center">Forgot your password?</h2>
-    </div>
+<div class="container-fluid p-0" style="max-width: 100%;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
+    <h2 class="navbar-heading">Forgot your password?</h2>
+  </nav>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
