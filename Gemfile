@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.2'
 gem 'bundler'
 gem 'cssbundling-rails'
-gem 'pg', '~> 1.5', '>= 1.5.4'
+gem 'pg'
 gem 'rails', '~> 7.0.8'
 gem 'sprockets-rails'
 
