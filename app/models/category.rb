@@ -1,4 +1,5 @@
 class Category < ApplicationRecord
+  self.table_name = 'categories'
   belongs_to :user, foreign_key: 'author_id'
   has_many :transaction_categories
   has_many :transactions
