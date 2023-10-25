@@ -5,25 +5,38 @@
   </button>
   <h1 class="text-center text-white w-100">Categories</h1>
 </nav>
+
 <% if user_signed_in? %>
   <%= link_to "Welcome, #{current_user.email}", "#", class: "nav-link" %>
 <% end %>
- <div class="notifications">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
+
+<div class="notifications">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+</div>
 <p style="color: green"><%= notice %></p>
 
 <div id="categories" class="list-group">
   <% @categories.each do |category| %>
-    <div class="card mb-2">
-      <div class="card-body">
-        <%= render category %>
-        <a href="<%= category_path(category) %>" class="btn btn-primary">Show this category</a>
+    <a href="<%= category_path(category) %>" class="list-group-item list-group-item-action mb-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex">
+          <div>
+            <img src="<%= category.icon %>" alt="<%= category.icon %>" class="category-icon me-4">
+          </div>
+          <div>
+            <h5 class="card-title"><%= category.name %></h5>
+          </div>
+        </div>
+        <% total_transactions = category.transactions.sum(:amount) %>
+        <div class="text-lg font-weight-bold">
+          <p>Total Transactions: <%= total_transactions %></p>
+        </div>
       </div>
-    </div>
+    </a>
   <% end %>
 </div>
+
 <div class="container-fluid fixed-bottom">
   <div class="container">
     <div class="footer-button">
@@ -31,5 +44,3 @@
     </div>
   </div>
 </div>
-
-

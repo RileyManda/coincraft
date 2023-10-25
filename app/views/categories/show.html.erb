@@ -3,7 +3,7 @@
     <img src="<%= asset_path('arrow-left.png') %>" alt="" class="logo" style="margin-left: 10px;">
   <% end %>
   <h1 class="text-center text-white w-100">
-    Transactions
+   <%= @category.name %>
   </h1>
   <a class="navbar-brand" href="#">
     <img src="<%= asset_path('search-icon.png') %>" alt="" class="logo" style="margin-left: 10px;">
@@ -12,17 +12,19 @@
 
 <p style="color: green"><%= notice %></p>
 <div class="card mb-3">
-  <div class="card-body">
-    <%= render @category %>
-
-    <!-- Add the total amount section here -->
-    <% total_amount = @category.transactions.sum(:amount) %>
-    <div class="text-right">
-      <h5 class="card-title">Total Transactions Amount:</h5>
-      <p class="card-text">Amount: $<%= total_amount %></p>
+  <div class="card-body text-center">
+    <div class="mb-4">
+      <img src="<%= @category.icon %>" alt="<%= @category.icon %>" class="category-icon">
     </div>
+    <h5 class="card-title"><strong>Name:</strong> <%= @category.name %></h5>
+    <hr> 
+    <h5 class="card-title">Total Transactions Amount:</h5>
+    <% total_amount = @category.transactions.sum(:amount) %>
+    <p class="card-text">Amount: $<%= total_amount %></p>
   </div>
 </div>
+
+
 
 <div class="list-group" style="margin-left: 20px; margin-right: 20px;">
   <% @category.transactions.each do |transaction| %>
