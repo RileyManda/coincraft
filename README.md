@@ -289,7 +289,7 @@ I would like to express my sincere gratitude to [Microverse](https://github.com/
  ## 👥 Attribution <a name="attribution"></a>
 - ProjectIcon: [Svgrepo](https://www.svgrepo.com/)
 
-- This project ui is based on the design by: [https://www.behance.net/gregoirevella]
+- This project ui design is based on the design by: [https://www.behance.net/gregoirevella]
 
 <!-- LICENSE -->
 
