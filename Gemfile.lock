@@ -265,7 +265,7 @@ DEPENDENCIES
   factory_bot_rails
   jbuilder
   jsbundling-rails
-  pg (~> 1.1)
+  pg
   pry
   puma (~> 5.0)
   rails (~> 7.0.8)
