@@ -1,5 +1,4 @@
 class Transaction < ApplicationRecord
-  self.table_name = 'transactions'
   belongs_to :user, foreign_key: 'author_id'
   has_many :transaction_categories
   has_many :categories, through: :transaction_categories
