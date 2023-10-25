@@ -83,4 +83,4 @@ production:
   <<: *default
   database: coincraft_production
   username: coincraft
-  password: <%= ENV["COINCRAFT_DATABASE_PASSWORD"] %>
+  password: <%= ENV['DATABASE_URL'] %>
