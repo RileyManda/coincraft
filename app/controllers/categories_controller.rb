@@ -4,15 +4,13 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Category.includes(:transactions)
-
   end
 
   # GET /categories/1 or /categories/1.json
-def show
-  @category = Category.includes(:transactions).find(params[:id])
-  @transactions = @category.transactions
-end
-
+  def show
+    @category = Category.includes(:transactions).find(params[:id])
+    @transactions = @category.transactions
+  end
 
   # GET /categories/new
   def new
