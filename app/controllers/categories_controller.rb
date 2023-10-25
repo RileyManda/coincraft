@@ -15,6 +15,18 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
+    @icon_choices = [
+      ['🛒', '🛒'],
+      ['🛩️', '🛩️'],
+      ['🍽️', '🍽️'],
+      ['🚗', '🚗'],
+      ['🏠', '🏠'],
+      ['🛍️', '🛍️'],
+      ['🏥', '🏥'],
+      ['🎓', '🎓'],
+      ['📦', '📦'],
+      ['🎮', '🎮']
+    ]
   end
 
   # GET /categories/1/edit
