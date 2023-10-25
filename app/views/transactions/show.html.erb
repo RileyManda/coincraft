@@ -2,7 +2,7 @@
   <%= link_to categories_path do %>
     <img src="<%= asset_path('arrow-left.png') %>" alt="" class="logo" style="margin-left: 10px;">
   <% end %>
-  <h2 class="text-center text-white w-100">Transaction</h2>
+  <h2 class="text-center text-white w-100"><%= @transaction.name %></h2>
   <a class="navbar-brand" href="#">
     <img src="<%= asset_path('search-icon.png') %>" alt="" class="logo" style="margin-left: 10px;">
   </a>
