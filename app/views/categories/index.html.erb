@@ -21,9 +21,9 @@
     <a href="<%= category_path(category) %>" class="list-group-item list-group-item-action mb-3">
       <div class="d-flex justify-content-between align-items-center">
         <div class="d-flex">
-          <div>
-            <img src="<%= category.icon %>" alt="<%= category.icon %>" class="category-icon me-4">
-          </div>
+          <div class="mb-4">
+      <%= category.icon.html_safe %>
+    </div>
           <div>
             <h5 class="card-title"><%= category.name %></h5>
           </div>

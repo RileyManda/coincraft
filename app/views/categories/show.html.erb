@@ -9,12 +9,12 @@
     <img src="<%= asset_path('search-icon.png') %>" alt="" class="logo" style="margin-left: 10px;">
   </a>
 </nav>
-
+<br>
 <p style="color: green"><%= notice %></p>
-<div class="card mb-3">
+<div class="card mb-3 mt-5">
   <div class="card-body text-center">
-    <div class="mb-4">
-      <img src="<%= @category.icon %>" alt="<%= @category.icon %>" class="category-icon">
+    <div class="mb-6">
+      <%= @category.icon.html_safe %>
     </div>
     <h5 class="card-title"><strong>Name:</strong> <%= @category.name %></h5>
     <hr>
@@ -23,6 +23,7 @@
     <p class="card-text">Amount: $<%= total_amount %></p>
   </div>
 </div>
+
 
 <div class="list-group" style="margin-left: 20px; margin-right: 20px;">
   <% @category.transactions.each do |transaction| %>
