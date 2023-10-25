@@ -10,3 +10,4 @@ Rails.application.routes.draw do
     get 'users/sign_out' => 'devise/sessions#destroy
     get 'users/sign_in'=> 'devise/sessions#new'
 end
+end
