@@ -1,9 +1,13 @@
-<h1>New category</h1>
-
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
+<%= link_to  categories_path do %>
+    <img src="<%= asset_path('arrow-left.png') %>" alt="" class="logo" style="margin-left: 10px;">
+  <% end %>
+  <h1 class="text-center text-white w-100">
+New Category
+  </h1>
+  <a class="navbar-brand" href="#">
+  <img src="<%= asset_path('search-icon.png') %>" alt="" class="logo" style="margin-left: 10px;">
+</a>
+</nav>
 <%= render "form", category: @category %>
 
-<br>
-
-<div>
-  <%= link_to "Back to categories", categories_path %>
-</div>

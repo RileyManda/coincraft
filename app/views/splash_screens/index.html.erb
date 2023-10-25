@@ -1,6 +1,9 @@
-<h1>Welcome to CoinCraft</h1>
-
-<div>
-  <p><%= link_to 'Sign In', new_user_session_path %></p>
-  <p><%= link_to 'Sign Up', new_user_registration_path %></p>
+<div class="container text-center">
+  <h1 class="proxima-nova mt-5">CoinCraft</h1>
+  <div class="mt-4">
+    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+      <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary white-text mb-2', style: 'background-color: #3778c2;' %>
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-link white-text' %>
+    </div>
+  </div>
 </div>
