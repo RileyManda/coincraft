@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'splash_screens#index'
 
   authenticated :user do
-  resources :users, only: [:show, :edit, :update, :destroy]
       resources :categories, only: [:index, :show, :new, :create, :edit, :update, :destroy]
       resources :transactions
       resources :splash_screens
