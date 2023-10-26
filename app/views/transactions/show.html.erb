@@ -1,10 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
-  <%= link_to categories_path do %>
-    <img src="<%= asset_path('arrow-left.png') %>" alt="" class="logo" style="margin-left: 10px;">
-  <% end %>
-  <h2 class="text-center text-white w-100"><%= @transaction.name %></h2>
-  <a class="navbar-brand" href="#">
-    <img src="<%= asset_path('search-icon.png') %>" alt="" class="logo" style="margin-left: 10px;">
+<%= link_to categories_path, class: "navbar-brand text-white", style: "padding: 0;" do %>
+  <img src="<%= asset_path('arrow-left.png') %>" alt="" class="logo" style="margin-left: 10px; width: 30px;">
+<% end %>
+
+    <p class="text-center text-white"> <%= @transaction.name %></p>
+  <a class="navbar-brand text-right" href="#">
+    <img src="<%= asset_path('search-icon.png') %>" alt="" class="logo" style="margin-right: 10px;width:30px">
   </a>
 </nav>
 <p style="color: green"><%= notice %></p>
