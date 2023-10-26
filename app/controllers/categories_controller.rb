@@ -1,18 +1,16 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category, only: %i[show edit update destroy]
-  # GET /categories or /categories.json
+
   def index
     @categories = Category.includes(:transactions)
   end
 
-  # GET /categories/1 or /categories/1.json
   def show
     @category = Category.includes(:transactions).find(params[:id])
     @transactions = @category.transactions
   end
 
-  # GET /categories/new
   def new
     @category = Category.new
     @icon_choices = [
@@ -29,10 +27,8 @@ class CategoriesController < ApplicationController
     ]
   end
 
-  # GET /categories/1/edit
   def edit; end
 
-  # POST /categories or /categories.json
   def create
     @category = Category.new(category_params)
     @category.author_id = current_user.id
