@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
+  <div class="d-flex justify-content-between align-items-center w-100">
+    <%= link_to categories_path, class: "navbar-brand text-white", style: "padding: 0;" do %>
+      <img src="<%= asset_path('arrow-left.png') %>" alt="" class="logo" style="margin-left: 10px; width: 30px;">
+    <% end %>
+    <p class="text-center text-white mb-0">New Transaction</p>
+    <a class="navbar-brand text-right" href="#">
+      <img src="<%= asset_path('search-icon.png') %>" alt="" class="logo" style="margin-right: 10px; width: 30px;">
+    </a>
+  </div>
+</nav>
+
+
+<div class="container mt-3" style="max-width: 400px; margin: 0 auto;">
+  <%= form_with(model: @transaction) do |form| %>
+    <% if @transaction.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+        <ul>
+          <% @transaction.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group mb-3">
+      <%= form.text_field :name, placeholder: "Name", class: "form-control" %>
+    </div>
+
+    <div class="form-group mb-3">
+      <%= form.text_field :amount, placeholder: "Amount", class: "form-control" %>
+    </div>
+
+    <div class="form-group mb-3">
+      <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: "Select a category" }, class: "form-control" %>
+    </div>
+
+    <div class="form-group mb-3">
+      <%= form.hidden_field :category_id, value: @category.id %>
+    </div>
+
+    <div class="form-group mb-3">
+      <%= form.submit "Create Transaction", class: "btn btn-primary", style: "background-color: #3778c2;" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coincraft</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= favicon_link_tag "favicon.ico" %>
+  </head>
+  <body style="background-color: #F5F5F5;">
+    <%= yield %>
+  </body>
+</html>
