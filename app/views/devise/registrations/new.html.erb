@@ -1,14 +1,17 @@
 <div class="container-fluid p-0" style="max-width: 100%;">
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
-<%= link_to new_user_session_path do %>
- <span class="btn white-text mb-2" style="font-size: 24px; color: white;">
+  <div class="d-flex justify-content-between align-items-center w-100">
+    <%= link_to new_user_session_path do %>
+      <span class="btn white-text mb-2" style="font-size: 24px; color: white;">
         &larr;
       </span>
-      <% end %>
-  <p class="text-center text-white">REGISTER</p>
-    <p class="navbar-brand text-right text-white">Next</p>
+    <% end %>
+    <p class="text-center text-white mb-0">REGISTER</p>
+    <p class="navbar-brand text-right text-white mb-0">Next</p>
+  </div>
 </nav>
+
 
   <div class="container mt-3" style="max-width: 400px;">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>

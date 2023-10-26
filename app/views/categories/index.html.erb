@@ -1,12 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
-  <a class="navbar-brand text-white" href="#">
-    <img src="<%= asset_path('nav-icon.png') %>" alt="" class="logo" style="margin-left: 10px;width:30px">
-  </a>
-  <p class="text-center text-white">Categories</p>
-  <a class="navbar-brand text-right" href="#">
-    <img src="<%= asset_path('search-icon.png') %>" alt="" class="logo" style="margin-right:10px;width:30px">
-  </a>
+  <div class="d-flex justify-content-between align-items-center w-100">
+    <a class="navbar-brand text-white" href="#">
+      <img src="<%= asset_path('nav-icon.png') %>" alt="" class="logo" style="margin-left: 10px; width: 30px;">
+    </a>
+    <p class="text-center text-white mb-0">Categories</p>
+    <a class="navbar-brand text-right" href="#">
+      <img src="<%= asset_path('search-icon.png') %>" alt="" class="logo" style="margin-right: 10px; width: 30px;">
+    </a>
+  </div>
 </nav>
+
 
 <div class="notifications">
   <p class="notice"><%= notice %></p>

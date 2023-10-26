@@ -1,12 +1,16 @@
 <div class="container-fluid p-0" style="max-width: 100%;">
-
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
- <span class="btn white-text mb-2" style="font-size: 24px; color: white;">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3778c2;">
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <span class="btn white-text mb-2" style="font-size: 24px; color: white;">
         &larr;
       </span>
-  <p class="text-center text-white">LOGIN</p>
-    <p class="navbar-brand text-right text-white">Log In</p>
-</nav>
+      <p class="text-center text-white mb-0">LOGIN</p>
+      <p class="navbar-brand text-right text-white mb-0">Log In</p>
+    </div>
+  </nav>
+</div>
+
+
 
   <div class="container" style="max-width: 400px; margin: 20px auto;">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
