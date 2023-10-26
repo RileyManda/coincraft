@@ -17,6 +17,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
     - [🚀 Live Demo](#live-demo)
+    - [🚀 Presentation](#video-presentation)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -148,6 +149,13 @@ CoinCraft is a powerful and user-friendly Rails budgeting application designed t
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## 🚀 Video Presentation Demo <a name="video-presentation"></a>
+
+> Video Presentation of this application:
+
+- [Video Presentation](https://www.loom.com/share/f14791b5ea4f4a9db4854eccc7569c48?sid=cf3ad867-47a8-4433-9b43-e89fd2ff4e0d)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
