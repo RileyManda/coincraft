@@ -3,18 +3,18 @@
     <img src="<%= asset_path('arrow-left.png') %>" alt="" class="logo" style="margin-left: 10px;">
   <% end %>
   <h2 class="text-center text-white w-100"><%= @transaction.name %></h2>
-  <a class="navbar-brand" href="#">
+  <a class a="navbar-brand" href="#">
     <img src="<%= asset_path('search-icon.png') %>" alt="" class="logo" style="margin-left: 10px;">
   </a>
 </nav>
 <p style="color: green"><%= notice %></p>
-<div class="card" style="max-width: 400px; margin: 0 auto;">
-  <div class="card-body">
-    <h2 class="card-title text-center"><%= @transaction.name %></h2>
+<div id="transactions" class=" card p-3 list-group">
+  <div class="card-body d-flex flex-column">
+    <h2 class="card-title"><%= @transaction.name %></h2>
     <%= render @transaction %>
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-end">
       <%= link_to "Edit this transaction", edit_transaction_path(@transaction), class: "btn btn-primary" %>
-      <%= button_to "Destroy this transaction", @transaction, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+      <%= button_to "Destroy this transaction", @transaction, method: :delete, class: "btn btn-danger ml-2", data: { confirm: "Are you sure?" } %>
     </div>
   </div>
 </div>
