@@ -10,7 +10,7 @@
 
   <div class="container" style="max-width: 400px; margin: 20px auto;">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-group mb-4">
+      <div class="form-group">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
       </div>
 
@@ -25,7 +25,7 @@
         </div>
       <% end %>
 
-      <div class="actions">
+      <div class="actions text-center">
         <%= f.submit "Log in", class: "btn btn-primary btn-sm" %>
       </div>
     <% end %>
