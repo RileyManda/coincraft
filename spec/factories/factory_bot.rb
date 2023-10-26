@@ -5,7 +5,6 @@ FactoryBot.define do
   end
 end
 
-
 FactoryBot.define do
   factory :transaction do
     name { 'Example Transaction' }
@@ -13,7 +12,6 @@ FactoryBot.define do
     association :user
   end
 end
-
 
 FactoryBot.define do
   factory :category do

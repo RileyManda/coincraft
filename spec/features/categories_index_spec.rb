@@ -4,9 +4,9 @@ RSpec.feature 'Categories', type: :feature do
   let(:user) { create(:user) }
 
   before do
-    sign_in user  
-    create(:category, name: 'Groceries', user: user)
-    create(:category, name: 'Travel', user: user)
+    sign_in user
+    create(:category, name: 'Groceries', user:)
+    create(:category, name: 'Travel', user:)
   end
 
   scenario 'User views a list of categories' do
