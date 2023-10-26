@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
     get 'users/sign_in' => 'devise/sessions#new'
     get '/categories', to: 'categories#index'
+    get '/transactions', to: 'transactions#index'
 end
