@@ -6,12 +6,10 @@ class CategoriesController < ApplicationController
     @categories = Category.includes(:transactions)
   end
 
-
   def show
     @category = Category.includes(:transactions).find(params[:id])
     @transactions = @category.transactions
   end
-
 
   def new
     @category = Category.new
@@ -29,9 +27,7 @@ class CategoriesController < ApplicationController
     ]
   end
 
-
   def edit; end
-
 
   def create
     @category = Category.new(category_params)
