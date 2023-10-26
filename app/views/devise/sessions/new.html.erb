@@ -28,9 +28,10 @@
           <%= f.label :remember_me, class: "form-check-label" %>
         </div>
       <% end %>
-
-     
-    <% end %>
+  <div class="actions">
+    <%= f.submit "Log in",class: "btn btn-primary btn-sm"  %>
+  </div>
+<% end %>
   </div>
 
   <div class="text-center">
@@ -38,8 +39,12 @@
   </div>
 </div>
 
-<script>
+<%
+=begin%>
+ <script>
   document.getElementById("login-button").addEventListener("click", function() {
     document.querySelector("form").submit();
   });
 </script>
+<%
+=end%>

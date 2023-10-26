@@ -8,13 +8,13 @@
   </a>
 </nav>
 <p style="color: green"><%= notice %></p>
-<div class="card" style="max-width: 400px; margin: 0 auto;">
-  <div class="card-body">
-    <h2 class="card-title text-center"><%= @transaction.name %></h2>
+<div id="transactions" class="card p-3 mx-auto" style="max-width: 600px;">
+  <div class="card-body text-center">
+    <h2 class="card-title"><%= @transaction.name %></h2>
     <%= render @transaction %>
-    <div class="d-flex justify-content-between">
-      <%= link_to "Edit this transaction", edit_transaction_path(@transaction), class: "btn btn-primary" %>
-      <%= button_to "Destroy this transaction", @transaction, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+
+    <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+      <%= button_to "Delete transaction", @transaction, method: :delete, class: "btn btn-outline-danger", data: { confirm: "Are you sure?" } %>
     </div>
   </div>
 </div>

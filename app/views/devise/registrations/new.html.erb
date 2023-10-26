@@ -35,12 +35,20 @@
       <div class="form-group mb-3">
         <%= f.password_field :password_confirmation, placeholder: "Confirm Password", autocomplete: "new-password", class: "form-control" %>
       </div>
+      <div class="actions">
+    <%= f.submit "Sign up",class: "btn btn-primary btn-sm"  %>
+  </div>
     <% end %>
+
   </div>
 </div>
 
-<script>
+<%
+=begin%>
+ <script>
   document.getElementById("next-button").addEventListener("click", function() {
     document.querySelector("form").submit();
   });
 </script>
+<%
+=end%>

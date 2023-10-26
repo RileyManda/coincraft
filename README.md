@@ -144,7 +144,7 @@ CoinCraft is a powerful and user-friendly Rails budgeting application designed t
 
 > Live Demo of this application:
 
-- [Live Demo Link](https://)
+- [Live Demo Link](https://coincraft.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -280,7 +280,7 @@ I would like to express my sincere gratitude to [Microverse](https://github.com/
 
   - Answer_1
 
-    You can use any code editor of your choice. <br>
+    You can use any one of your favortite or prefered editors<br>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
