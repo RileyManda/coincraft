@@ -9,24 +9,6 @@
   </a>
 </nav>
 
-<%
-=begin%>
- <br>
-<p style="color: green"><%= notice %></p>
-<div class="card mb-3 mt-5">
-  <div class="card-body text-center">
-    <div class="mb-6">
-      <%= @category.icon.html_safe %>
-    </div>
-    <h5 class="card-title text-center"><%= @category.name %></h5>
-    <hr>
-    <h5 class="card-title">Total Transactions Amount:</h5>
-    <% total_amount = @category.transactions.sum(:amount) %>
-    <p class="card-text">Amount: $<%= total_amount %></p>
-  </div>
-</div>
-<%
-=end%>
 
 <div class="list-group" style="margin-left: 0; margin-right: 0;">
   <div class="card mb-2">
