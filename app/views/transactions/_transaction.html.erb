@@ -1,17 +1,10 @@
 <div id="<%= dom_id transaction %>">
-
   <p>
-    <strong>Name:</strong>
-    <%= transaction.name %>
-  </p>
-
-  <p>
-    <strong>Amount:</strong>
-    <%= transaction.amount %>
+   $ <%= transaction.amount %>
   </p>
   <p>
     <strong>Category:</strong>
-    <%= transaction.category_id %>
+    <%= transaction.category.name %>
   </p>
 
 </div>
