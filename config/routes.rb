@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'splash_screens#index'
 
   authenticated :user do
-    resources :categories, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-    resources :transactions
+      resources :categories, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+      resources :transactions
     resources :splash_screens
   end
     get 'users/sign_in' => 'devise/sessions#new'
